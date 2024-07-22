@@ -35,7 +35,7 @@ jobs:
           with:
             ee: 'true'
             digger-spec: ${{ inputs.spec }}
-            #setup-terragrunt: true
+            setup-terragrunt: true
             #setup-terraform: true
             setup-aws: false
           env:
