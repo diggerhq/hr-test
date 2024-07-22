@@ -1,0 +1,11 @@
+collect_usage_data: true
+auto_merge: false
+
+generate_projects:
+  terragrunt_parsing:
+    # gitRoot: "terragrunt/"
+    parallel: true
+    createProjectName: true
+    createWorkspace: true
+    defaultWorkflow: default
+
