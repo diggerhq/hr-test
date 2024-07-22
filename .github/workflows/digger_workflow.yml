@@ -1,0 +1,46 @@
+name: Digger Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      spec:
+        required: true
+      run_name:
+        required: false
+
+run-name: ${{ inputs.run_name}}
+
+jobs:
+    digger-job:
+      runs-on: ubuntu-latest
+
+      permissions:
+        contents: write      # required to merge PRs
+        actions: write       # required for plan persistence
+        id-token: write      # required for workload-identity-federation
+        pull-requests: write # required to post PR comments
+        statuses: write      # required to validate combined PR status
+
+      steps:
+        - name: checkout repo
+          uses: actions/checkout@v4
+
+        - name: Setup tools with asdf
+          uses: asdf-vm/actions/install@v3
+
+        - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
+          run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
+        # - name: digger run ${{github.event.inputs.id}}
+        #   run: echo digger run ${{ inputs.id }}
+        #   shell: bash
+        - name: digger run
+          uses: diggerhq/digger@vLatest
+          with:
+            digger-spec: ${{ inputs.spec }}
+            #setup-terragrunt: true
+            #setup-terraform: true
+            setup-aws: false
+          env:
+            GITHUB_CONTEXT: ${{ toJson(github) }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            DEBUG: 'true'
