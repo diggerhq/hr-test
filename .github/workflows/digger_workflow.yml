@@ -43,3 +43,4 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             DEBUG: 'true'
             DIGGER_LICENSE_KEY: ${{ secrets.DIGGER_LICENSE_KEY }}
+            DIGGER_MANAGEMENT_REPO: "https://github.com/diggerhq/hr-test"
