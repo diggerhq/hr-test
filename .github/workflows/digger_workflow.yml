@@ -25,9 +25,6 @@ jobs:
         - name: checkout repo
           uses: actions/checkout@v4
 
-        - name: Setup tools with asdf
-          uses: asdf-vm/actions/install@v3
-
         - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
           run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
         # - name: digger run ${{github.event.inputs.id}}
