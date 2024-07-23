@@ -24,6 +24,8 @@ jobs:
       steps:
         - name: checkout repo
           uses: actions/checkout@v4
+          with:
+            fetch-depth: 2
 
         - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
           run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
