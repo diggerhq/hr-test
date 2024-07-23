@@ -22,7 +22,7 @@ include "projects" {
 }
 
 dependency "dependencytest" {
-  config_path = "${include.projects.locals.infrastructure_project_dir}/dependency"
+  config_path = "${include.projects.locals.infrastructure_project_dir}/dependency/dependency"
 }
 
 inputs = {
