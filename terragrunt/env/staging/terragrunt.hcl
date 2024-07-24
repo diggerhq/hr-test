@@ -1,4 +1,3 @@
-
 terraform {
   source = "../../modules/policies"
 }
@@ -22,7 +21,7 @@ include "projects" {
 }
 
 dependency "dependencytest" {
-  config_path = "${include.projects.locals.infrastructure_project_dir}/dependency/dependency"
+  config_path = "${include.projects.locals.infrastructure_project_dir}/dependency"
 }
 
 inputs = {
