@@ -33,7 +33,7 @@ jobs:
         #   run: echo digger run ${{ inputs.id }}
         #   shell: bash
         - name: digger run
-          uses: diggerhq/digger@vLatest
+          uses: diggerhq/digger@vfeat/dgctl-support-streaming
           with:
             ee: 'true'
             digger-spec: ${{ inputs.spec }}
