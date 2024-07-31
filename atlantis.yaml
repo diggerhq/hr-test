@@ -1,0 +1,32 @@
+parallel_apply: true
+parallel_plan: true
+projects:
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../../../terragrunt.hcl
+    - ../../../terragrunt/modules/s3/*.tf*
+  dir: projects/infrastructure/dependency
+  execution_order_group: 0
+  name: projects_infrastructure_dependency
+  workflow: def
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../../../terragrunt.hcl
+    - ../account.hcl
+    - ../../../projects.hcl
+    - ../../../projects/infrastructure/dependency/terragrunt.hcl
+    - ../../modules/s3/*.tf*
+    - ../../modules/policies/*.tf*
+  depends_on:
+  - projects_infrastructure_dependency
+  dir: terragrunt/env/staging
+  execution_order_group: 1
+  name: terragrunt_env_staging
+  workflow: def
+version: 3 
