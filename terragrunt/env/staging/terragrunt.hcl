@@ -27,7 +27,7 @@ dependency "dependencytest" {
 inputs = {
   policy_name  = basename(get_terragrunt_dir())
 #   account_id   = dependency.account.outputs.id
-  description  = "Test Team access"
+  description  = "Test Team access2"
   precedence   = 10
   match_emails = local.emails
   vpc_id = dependency.dependencytest.outputs.s3_name
