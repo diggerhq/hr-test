@@ -22,8 +22,8 @@ projects:
     - ../../../projects/infrastructure/dependency/terragrunt.hcl
     - ../../modules/s3/*.tf*
     - ../../modules/policies/*.tf*
-  # depends_on:
-  # - projects_infrastructure_dependency
+  depends_on:
+  - projects_infrastructure_dependency
   dir: terragrunt/env/staging
   # execution_order_group: 1
   name: terragrunt_env_staging
