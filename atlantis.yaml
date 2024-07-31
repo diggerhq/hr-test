@@ -11,7 +11,6 @@ projects:
   dir: projects/infrastructure/dependency
   execution_order_group: 0
   name: projects_infrastructure_dependency
-  workflow: def
 - autoplan:
     enabled: false
     when_modified:
@@ -28,5 +27,4 @@ projects:
   dir: terragrunt/env/staging
   execution_order_group: 1
   name: terragrunt_env_staging
-  workflow: def
 version: 3 
