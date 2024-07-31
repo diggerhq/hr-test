@@ -2,6 +2,8 @@ terraform {
   source = "../../modules/policies"
 }
 
+
+
 locals {
   emails = ["john.doe@hardrockdigital.com"]
 }
