@@ -3,7 +3,7 @@ auto_merge: false
 
 generate_projects:
   terragrunt_parsing:
-    # gitRoot: "terragrunt/"
+    gitRoot: "./"
     parallel: true
     createProjectName: true
     createWorkspace: true
