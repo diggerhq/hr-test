@@ -9,7 +9,7 @@ projects:
     - ../../../terragrunt.hcl
     - ../../../terragrunt/modules/s3/*.tf*
   dir: projects/infrastructure/dependency
-  execution_order_group: 0
+  # execution_order_group: 0
   name: projects_infrastructure_dependency
 - autoplan:
     enabled: false
@@ -22,9 +22,9 @@ projects:
     - ../../../projects/infrastructure/dependency/terragrunt.hcl
     - ../../modules/s3/*.tf*
     - ../../modules/policies/*.tf*
-  depends_on:
-  - projects_infrastructure_dependency
+  # depends_on:
+  # - projects_infrastructure_dependency
   dir: terragrunt/env/staging
-  execution_order_group: 1
+  # execution_order_group: 1
   name: terragrunt_env_staging
 version: 3 
